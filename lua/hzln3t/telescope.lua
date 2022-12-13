@@ -8,11 +8,12 @@ local function telescope_buffer_dir()
 end
 
 local fb_actions = require "telescope".extensions.file_browser.actions
+local z_utils = require("telescope._extensions.zoxide.utils")
 
 telescope.setup {
     defaults = {
         prompt_prefix = " ",
---        dynamic_preview_title = true,
+        --        dynamic_preview_title = true,
         mappings = {
             n = {
                 ["q"] = actions.close
@@ -38,18 +39,24 @@ telescope.setup {
             theme = "ivy",
             hijack_netrw = true,
             mappings = {
-                -- your custom insert mode mappings
-                ["i"] = {
-                    ["<C-w>"] = function() vim.cmd('normal vbd') end,
-                },
-                ["n"] = {
-                    -- your custom normal mode mappings
-                    ["N"] = fb_actions.create,
-                    ["h"] = fb_actions.goto_parent_dir,
-                    ["/"] = function()
-                        vim.cmd('startinsert')
+            },
+        },
+        zoxide = {
+            prompt_title = "[ Z Jump ]",
+            mappings = {
+                default = {
+                    after_action = function(selection)
+                        print("Update to (" .. selection.z_score .. ") " .. selection.path)
                     end
                 },
+                ["<C-s>"] = {
+                    before_action = function(selection) print("before C-s") end,
+                    action = function(selection)
+                        vim.cmd("edit " .. selection.path)
+                    end
+                },
+                -- Opens the selected entry in a new split
+                ["<C-q>"] = { action = z_utils.create_basic_command("split") },
             },
         },
     },
@@ -66,5 +73,7 @@ vim.keymap.set("n", "<leader>fe", function()
         initial_mode = "normal",
     })
 end)
+vim.keymap.set("n", "<leader>fz", require("telescope").extensions.zoxide.list)
 
 telescope.load_extension("file_browser")
+telescope.load_extension("zoxide")
