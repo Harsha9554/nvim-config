@@ -6,7 +6,6 @@ local options = {
 	fileencoding = "utf-8",
 	hlsearch = true,
 	ignorecase = true,
-	mouse = "a",
 	pumheight = 10,
 	showmode = false,
 	showtabline = 4,
