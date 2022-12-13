@@ -73,6 +73,7 @@ return packer.startup(function(use)
     }
     use { "nvim-telescope/telescope-file-browser.nvim" }
     use { "jvgrootveld/telescope-zoxide" }
+    use { "nvim-telescope/telescope-ui-select.nvim" }
 
 
     -- Git

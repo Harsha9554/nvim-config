@@ -59,6 +59,25 @@ telescope.setup {
                 ["<C-q>"] = { action = z_utils.create_basic_command("split") },
             },
         },
+        ["ui-select"] = {
+            require("telescope.themes").get_dropdown {
+                -- even more opts
+            }
+
+            -- pseudo code / specification for writing custom displays, like the one
+            -- for "codeactions"
+            -- specific_opts = {
+            --   [kind] = {
+            --     make_indexed = function(items) -> indexed_items, width,
+            --     make_displayer = function(widths) -> displayer
+            --     make_display = function(displayer) -> function(e)
+            --     make_ordinal = function(e) -> string
+            --   },
+            --   -- for example to disable the custom builtin "codeactions" display
+            --      do the following
+            --   codeactions = false,
+            -- }
+        }
     },
 }
 
@@ -77,3 +96,4 @@ vim.keymap.set("n", "<leader>tz", require("telescope").extensions.zoxide.list)
 
 telescope.load_extension("file_browser")
 telescope.load_extension("zoxide")
+telescope.load_extension("ui-select")
