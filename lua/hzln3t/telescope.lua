@@ -62,7 +62,7 @@ telescope.setup {
     },
 }
 
-vim.keymap.set("n", "<leader>fe", function()
+vim.keymap.set("n", "<leader>tb", function()
     telescope.extensions.file_browser.file_browser({
         path = "%:p:h",
         cwd = telescope_buffer_dir(),
@@ -73,7 +73,7 @@ vim.keymap.set("n", "<leader>fe", function()
         initial_mode = "normal",
     })
 end)
-vim.keymap.set("n", "<leader>fz", require("telescope").extensions.zoxide.list)
+vim.keymap.set("n", "<leader>tz", require("telescope").extensions.zoxide.list)
 
 telescope.load_extension("file_browser")
 telescope.load_extension("zoxide")

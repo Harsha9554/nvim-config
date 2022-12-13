@@ -9,4 +9,5 @@ require "hzln3t.autopairs"
 require "hzln3t.autotags"
 require "hzln3t.comment"
 require "hzln3t.bufferline"
+require "hzln3t.lualine"
 

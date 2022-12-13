@@ -47,7 +47,12 @@ return packer.startup(function(use)
     use "windwp/nvim-autopairs"
     use "windwp/nvim-ts-autotag"
     use "numToStr/Comment.nvim"
+
+
+    -- UI
     use "akinsho/bufferline.nvim"
+    use "nvim-lualine/lualine.nvim"
+    use "lukas-reineke/indent-blankline.nvim"
 
 
     -- Lazy loading:
