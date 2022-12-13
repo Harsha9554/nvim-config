@@ -124,11 +124,6 @@ _G.packer_plugins = {
     path = "/home/harsha9554/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
-  ["gruvbox-alt.nvim"] = {
-    loaded = true,
-    path = "/home/harsha9554/.local/share/nvim/site/pack/packer/start/gruvbox-alt.nvim",
-    url = "https://github.com/farbodsz/gruvbox-alt.nvim"
-  },
   ["gruvbox-flat.nvim"] = {
     loaded = true,
     path = "/home/harsha9554/.local/share/nvim/site/pack/packer/start/gruvbox-flat.nvim",
@@ -153,6 +148,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/harsha9554/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
+  },
+  ["nvim-autopairs"] = {
+    loaded = true,
+    path = "/home/harsha9554/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
+    url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -218,13 +218,6 @@ time([[Defining packer_plugins]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.api.nvim_create_user_command, 'Focus', function(cmdargs)
-          require('packer.load')({'vim-dispatch'}, { cmd = 'Focus', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'vim-dispatch'}, { cmd = 'Focus' }, _G.packer_plugins)
-          return vim.fn.getcompletion('Focus ', 'cmdline')
-      end})
 pcall(vim.api.nvim_create_user_command, 'Start', function(cmdargs)
           require('packer.load')({'vim-dispatch'}, { cmd = 'Start', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
         end,
@@ -245,6 +238,13 @@ pcall(vim.api.nvim_create_user_command, 'Make', function(cmdargs)
         {nargs = '*', range = true, bang = true, complete = function()
           require('packer.load')({'vim-dispatch'}, { cmd = 'Make' }, _G.packer_plugins)
           return vim.fn.getcompletion('Make ', 'cmdline')
+      end})
+pcall(vim.api.nvim_create_user_command, 'Focus', function(cmdargs)
+          require('packer.load')({'vim-dispatch'}, { cmd = 'Focus', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'vim-dispatch'}, { cmd = 'Focus' }, _G.packer_plugins)
+          return vim.fn.getcompletion('Focus ', 'cmdline')
       end})
 time([[Defining lazy-load commands]], false)
 
