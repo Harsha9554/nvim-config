@@ -53,6 +53,7 @@ return packer.startup(function(use)
     use "akinsho/bufferline.nvim"
     use "nvim-lualine/lualine.nvim"
     use "lukas-reineke/indent-blankline.nvim"
+    use "norcalli/nvim-colorizer.lua"
 
 
     -- Lazy loading:
