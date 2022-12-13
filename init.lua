@@ -6,4 +6,5 @@ require "hzln3t.telescope"
 require "hzln3t.git"
 require "hzln3t.treesitter"
 require "hzln3t.autopairs"
+require "hzln3t.comment"
 

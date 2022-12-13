@@ -45,14 +45,18 @@ return packer.startup(function(use)
     use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
     use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
     use "windwp/nvim-autopairs"
+    use "numToStr/Comment.nvim"
+
 
     -- Lazy loading:
     -- Load on specific commands
     use { 'tpope/vim-dispatch', opt = true, cmd = { 'Dispatch', 'Make', 'Focus', 'Start' } }
 
+
     -- Theme
     use { "eddyekofo94/gruvbox-flat.nvim" }
     use { "wittyjudge/gruvbox-material.nvim" }
+
 
     -- Telescope
     use {
@@ -63,16 +67,19 @@ return packer.startup(function(use)
     use { "nvim-telescope/telescope-file-browser.nvim" }
     use { "jvgrootveld/telescope-zoxide" }
 
+
     -- Git
     use { "dinhhuy258/git.nvim" }
     use { "lewis6991/gitsigns.nvim" }
 
+    --
     -- Treesitter
     use {
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
     }
     use { "p00f/nvim-ts-rainbow" }
+    use { "JoosepAlviste/nvim-ts-context-commentstring" }
 
 
     -- LSP-0
