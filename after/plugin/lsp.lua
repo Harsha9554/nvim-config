@@ -21,7 +21,15 @@ lsp.set_preferences({
 })
 
 lsp.setup_nvim_cmp({
-  mapping = cmp_mappings
+  mapping = cmp_mappings,
+  sources = {
+      {name = "nvim_lsp"},
+      {name = "nvim_lua"},
+      {name = "luasnip"},
+      {name = "buffer"},
+      {name = "path"},
+      {name = "calc"},
+  }
 })
 
 lsp.on_attach(function(client, bufnr)
@@ -48,4 +56,20 @@ vim.diagnostic.config({
     underline = true,
     severity_sort = false,
     float = true
+})
+
+lsp.set_preferences({
+  suggest_lsp_servers = true,
+  setup_servers_on_start = true,
+  set_lsp_keymaps = true,
+  configure_diagnostics = true,
+  cmp_capabilities = true,
+  manage_nvim_cmp = true,
+  call_servers = 'local',
+  sign_icons = {
+    error = '✘',
+    warn = '▲',
+    hint = '⚑',
+    info = ''
+  }
 })
