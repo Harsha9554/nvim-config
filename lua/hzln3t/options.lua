@@ -1,6 +1,6 @@
 local options = {
 	clipboard = "unnamedplus",
-	cmdheight = 1,               
+	cmdheight = 1,
 	completeopt = { "menuone", "noselect" },
 	conceallevel = 0,
 	fileencoding = "utf-8",
@@ -26,7 +26,6 @@ local options = {
 	relativenumber = true,
 	numberwidth = 2,
 	signcolumn = "yes",
-	wrap = false,                         
 	scrolloff = 8,
 	sidescrolloff = 8,
 	guifont = "monospace:h17",
@@ -40,11 +39,15 @@ local options = {
 }
 
 vim.opt.shortmess:append "c"
+vim.g.netrw_banner=0
+
 
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end
-                          
+
+
+-- vim.cmd [[set g:netrw_banner=0]]
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work

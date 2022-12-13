@@ -52,6 +52,19 @@ return packer.startup(function(use)
     -- Theme
     use "eddyekofo94/gruvbox-flat.nvim"
 
+    -- Telescope
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        -- or                            , branch = '0.1.x',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    }
+    use { "nvim-telescope/telescope-file-browser.nvim" }
+
+    -- Git
+    use { "dinhhuy258/git.nvim" }
+    use { "lewis6991/gitsigns.nvim" }
+
+    -- LSP-0
     use {
         'VonHeikemen/lsp-zero.nvim',
         requires = {
@@ -72,6 +85,7 @@ return packer.startup(function(use)
             -- Snippets
             {'L3MON4D3/LuaSnip'},
             {'rafamadriz/friendly-snippets'},
+
         }
     }
     -- Automatically set up your configuration after cloning packer.nvim
