@@ -54,6 +54,7 @@ return packer.startup(function(use)
     use "nvim-lualine/lualine.nvim"
     use "lukas-reineke/indent-blankline.nvim"
     use "norcalli/nvim-colorizer.lua"
+    --    anuvyklack/fold-preview.nvim
 
 
     -- Lazy loading:
@@ -64,7 +65,6 @@ return packer.startup(function(use)
     -- Theme
     use { "eddyekofo94/gruvbox-flat.nvim" }
     use { "wittyjudge/gruvbox-material.nvim" }
-
 
     -- Telescope
     use {
