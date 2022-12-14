@@ -81,7 +81,7 @@ telescope.setup {
     },
 }
 
-vim.keymap.set("n", "<leader>tb", function()
+vim.keymap.set("n", "<leader>e", function()
     telescope.extensions.file_browser.file_browser({
         path = "%:p:h",
         cwd = telescope_buffer_dir(),
