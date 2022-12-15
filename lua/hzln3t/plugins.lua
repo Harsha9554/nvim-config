@@ -47,6 +47,7 @@ return packer.startup(function(use)
     use "windwp/nvim-autopairs"
     use "windwp/nvim-ts-autotag"
     use "numToStr/Comment.nvim"
+    use "mg979/vim-visual-multi"
 
 
     -- UI
@@ -81,7 +82,7 @@ return packer.startup(function(use)
     use { "dinhhuy258/git.nvim" }
     use { "lewis6991/gitsigns.nvim" }
 
-    --
+
     -- Treesitter
     use {
         "nvim-treesitter/nvim-treesitter",
@@ -89,6 +90,11 @@ return packer.startup(function(use)
     }
     use { "p00f/nvim-ts-rainbow" }
     use { "JoosepAlviste/nvim-ts-context-commentstring" }
+
+    -- diagnostics
+    use {
+        "folke/trouble.nvim",
+    }
 
 
     -- LSP-0
@@ -115,6 +121,8 @@ return packer.startup(function(use)
 
         }
     }
+    use { 'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp' }
+
     -- Additional
     use({
         "kylechui/nvim-surround",
