@@ -37,8 +37,8 @@ local options = {
 	writebackup = false,
 }
 
-vim.opt.shortmess:append "c"
-vim.g.netrw_banner=0
+vim.opt.shortmess:append("c")
+vim.g.netrw_banner = 0
 
 for k, v in pairs(options) do
 	vim.opt[k] = v
@@ -47,11 +47,13 @@ end
 -- auto-refresh
 vim.o.autoread = true
 vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
-  command = "if mode() != 'c' | checktime | endif",
-  pattern = { "*" },
+	command = "if mode() != 'c' | checktime | endif",
+	pattern = { "*" },
 })
 
+vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.formatting_seq_sync()]])
+
 -- vim.cmd [[set g:netrw_banner=0]]
-vim.cmd "set whichwrap+=<,>,[,],h,l"
-vim.cmd [[set iskeyword+=-]]
-vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
+vim.cmd("set whichwrap+=<,>,[,],h,l")
+vim.cmd([[set iskeyword+=-]])
+vim.cmd([[set formatoptions-=cro]]) -- TODO: this doesn't seem to work

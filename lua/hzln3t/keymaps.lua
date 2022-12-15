@@ -6,7 +6,9 @@ local term_opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 local builtin = require("telescope.builtin")
 
-
+-- Other
+keymap("n", "<C-q>", ":qa!<CR>", opts)
+keymap("n", "<C-s>", ":w<CR>", opts)
 
 -- Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -15,7 +17,6 @@ vim.g.maplocalleader = " "
 
 -- Unhighlight
 keymap("n", "<leader>h", ":nohl<CR>", opts)
-keymap("n", "<leader>qq", ":qa!<CR>", opts)
 
 -- Modes
 --   normal_mode = "n",
@@ -41,8 +42,8 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
-vim.keymap.set('n', '<Tab>', '<Cmd>BufferLineCycleNext<CR>', {})
-vim.keymap.set('n', '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', {})
+vim.keymap.set("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>", {})
+vim.keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", {})
 
 -- Splits
 keymap("n", "<leader>sv", ":vsplit<CR>", opts)
@@ -77,28 +78,16 @@ keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- Telscope
-vim.keymap.set('n', '<leader>tf', builtin.find_files, {})
-vim.keymap.set('n', '<leader>tg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>tb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>th', builtin.help_tags, {})
-vim.keymap.set('n', '<leader>tr', builtin.resume, {})
+vim.keymap.set("n", "<leader>tf", builtin.find_files, {})
+vim.keymap.set("n", "<leader>tg", builtin.live_grep, {})
+vim.keymap.set("n", "<leader>tb", builtin.buffers, {})
+vim.keymap.set("n", "<leader>th", builtin.help_tags, {})
+vim.keymap.set("n", "<leader>tr", builtin.resume, {})
 
 -- Trouble
-vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>",
-  {silent = true, noremap = true}
-)
-vim.keymap.set("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>",
-  {silent = true, noremap = true}
-)
-vim.keymap.set("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>",
-  {silent = true, noremap = true}
-)
-vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>",
-  {silent = true, noremap = true}
-)
-vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>",
-  {silent = true, noremap = true}
-)
-vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>",
-  {silent = true, noremap = true}
-)
+vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>", { silent = true, noremap = true })
+vim.keymap.set("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", { silent = true, noremap = true })
+vim.keymap.set("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", { silent = true, noremap = true })
+vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>", { silent = true, noremap = true })
+vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", { silent = true, noremap = true })
+vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>", { silent = true, noremap = true })
