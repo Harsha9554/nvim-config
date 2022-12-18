@@ -49,6 +49,10 @@ vim.keymap.set("n", "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", {})
 keymap("n", "<leader>sv", ":vsplit<CR>", opts)
 keymap("n", "<leader>sh", ":split<CR>", opts)
 
+-- Sessions
+keymap("n", "<leader>ss", ":SessionsSave<CR>", opts)
+keymap("n", "<leader>sl", ":SessionsLoad<CR>", opts)
+
 -- Insert --
 -- Press jk fast to enter
 keymap("i", "kj", "<ESC>", opts)
